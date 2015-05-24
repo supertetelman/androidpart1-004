@@ -42,3 +42,4 @@ public class GoToDangerousActivity extends Activity {
 	}
 
 }
+
