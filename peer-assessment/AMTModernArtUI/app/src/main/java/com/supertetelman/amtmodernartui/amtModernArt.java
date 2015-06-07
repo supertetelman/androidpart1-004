@@ -12,13 +12,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.widget.LinearLayout;
 import android.graphics.Rect;
-
 import android.widget.TextView;
-
-
-
-//TODO Display 5 differently colored rectangles ( 1 white, 1 gray, 1 color, 1 red, 1 black)
-//TODO OPtional add a slider that modifies the rectangle colours
 
 
 public class AmtModernArt extends ActionBarActivity {
@@ -31,7 +25,6 @@ public class AmtModernArt extends ActionBarActivity {
         setContentView(R.layout.activity_amt_modern_art);
 
         if (savedInstanceState == null) {
-       ;
             getFragmentManager().beginTransaction().add(R.id.fragment_container, new SquareFragment()).commit();
         }
     }
@@ -43,6 +36,7 @@ public class AmtModernArt extends ActionBarActivity {
         return true;
     }
 
+    //menu options
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -57,6 +51,7 @@ public class AmtModernArt extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //bring a popup dialogue box
     private boolean onClickMoreInformation() {
 
         DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -79,6 +74,7 @@ public class AmtModernArt extends ActionBarActivity {
         return true;
     }
 
+    //open URL
     private boolean openMomaUrl() {
         Intent momaBrowseIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MOMA_URL));
         startActivity(momaBrowseIntent);

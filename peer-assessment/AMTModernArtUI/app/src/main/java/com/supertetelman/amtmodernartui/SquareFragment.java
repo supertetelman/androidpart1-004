@@ -14,16 +14,18 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.graphics.Color;
 public class SquareFragment extends Fragment {
-   private int c1, c2, c3, c4, c5, c6;
+    private int c1, c2, c3, c4, c5, c6;
     private View v1, v2, v3, v4 ,v5 ,v6;
     public SquareFragment(){
 
     }
 
+    //statndard onCreateView
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_square, container, false);
 
+        //import colors
         c1 = getResources().getColor(R.color.c1);
         c2 = getResources().getColor(R.color.c2);
         c3 = getResources().getColor(R.color.c3);
@@ -31,6 +33,7 @@ public class SquareFragment extends Fragment {
         c5 = getResources().getColor(R.color.c5);
         c6 = getResources().getColor(R.color.c6);
 
+        //import views
         v1 = (View) view.findViewById((R.id.v1));
         v2 = (View) view.findViewById((R.id.v2));
         v3 = (View) view.findViewById((R.id.v3));
@@ -38,6 +41,7 @@ public class SquareFragment extends Fragment {
         v5 = (View) view.findViewById((R.id.v5));
         v6 = (View) view.findViewById((R.id.v6));
 
+        //Override the slider to it changes colors when updated
         final SeekBar seekBar = (SeekBar)view.findViewById(R.id.seek_bar);
         seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
         {
@@ -60,16 +64,17 @@ public class SquareFragment extends Fragment {
         return view;
     }
 
+    //Update the square colors
     private void changeColors(float percent) {
-       // v1.setBackgroundColor(updatedColor(c1,percent));
-       // v2.setBackgroundColor(updatedColor(c2,percent));
+        //v1.setBackgroundColor(updatedColor(c1,percent));
+        //v2.setBackgroundColor(updatedColor(c2,percent));
         v3.setBackgroundColor(updatedColor(c3,percent));
         v4.setBackgroundColor(updatedColor(c4,percent));
         v5.setBackgroundColor(updatedColor(c5,percent));
         v6.setBackgroundColor(updatedColor(c6,percent));
     }
 
-
+//Function to take a value from the slider and original color and return a new value
     private int updatedColor(int color, float percentage)
     {
         int r = (int)((float)Color.red(color) * percentage);
