@@ -4,132 +4,79 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.graphics.Color;
-
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SquareFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SquareFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SquareFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SquareFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SquareFragment newInstance(String param1, String param2) {
-        SquareFragment fragment = new SquareFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    public SquareFragment() {
-        // Required empty public constructor
-    }
-    public SquareFragment(String color) {
-        mParam1 = color;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_square, container, false);
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-
-        this.getView().setBackgroundColor(Color.parseColor(mParam1));
+   private int c1, c2, c3, c4, c5, c6;
+    private View v1, v2, v3, v4 ,v5 ,v6;
+    public SquareFragment(){
 
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_square, container, false);
+
+        c1 = getResources().getColor(R.color.c1);
+        c2 = getResources().getColor(R.color.c2);
+        c3 = getResources().getColor(R.color.c3);
+        c4 = getResources().getColor(R.color.c4);
+        c5 = getResources().getColor(R.color.c5);
+        c6 = getResources().getColor(R.color.c6);
+
+        v1 = (View) view.findViewById((R.id.v1));
+        v2 = (View) view.findViewById((R.id.v2));
+        v3 = (View) view.findViewById((R.id.v3));
+        v4 = (View) view.findViewById((R.id.v4));
+        v5 = (View) view.findViewById((R.id.v5));
+        v6 = (View) view.findViewById((R.id.v6));
+
+        final SeekBar seekBar = (SeekBar)view.findViewById(R.id.seek_bar);
+        seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+        {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                changeColors(1 - ((float) progress / 100));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        return view;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+    private void changeColors(float percent) {
+       // v1.setBackgroundColor(updatedColor(c1,percent));
+       // v2.setBackgroundColor(updatedColor(c2,percent));
+        v3.setBackgroundColor(updatedColor(c3,percent));
+        v4.setBackgroundColor(updatedColor(c4,percent));
+        v5.setBackgroundColor(updatedColor(c5,percent));
+        v6.setBackgroundColor(updatedColor(c6,percent));
     }
 
-}
 
-/*
+    private int updatedColor(int color, float percentage)
+    {
+        int r = (int)((float)Color.red(color) * percentage);
+        int g = Color.green(color);
+        int b = (int)((float)Color.blue(color) * percentage);
+        int a = Color.alpha(color);
 
-public class SquareFragment extends Fragment {
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "color";
-
-    private String color;
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_square, container, false);
+        return Color.argb(a,r,g,b);
     }
 }
-
- */

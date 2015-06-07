@@ -10,6 +10,12 @@ import android.content.DialogInterface;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.widget.LinearLayout;
+import android.graphics.Rect;
+
+import android.widget.TextView;
+
+
 
 //TODO Display 5 differently colored rectangles ( 1 white, 1 gray, 1 color, 1 red, 1 black)
 //TODO OPtional add a slider that modifies the rectangle colours
@@ -21,18 +27,13 @@ public class AmtModernArt extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_amt_modern_art);
 
-        /*
-        getFragmentManager().beginTransaction()
-                .add(R.layout.fragment_square, new SquareFragment("RED"))
-                .add(R.layout.fragment_square, new SquareFragment("WHITE"))
-                .add(R.layout.fragment_square, new SquareFragment("BLUE"))
-                .add(R.layout.fragment_square, new SquareFragment("BLACK"))
-                .add(R.layout.fragment_square, new SquareFragment("GREY"))
-                .commit();
-                */
-      //  getFragmentManager().beginTransaction().add(R.layout.fragment_square, new SquareFragment()).commit();
+        if (savedInstanceState == null) {
+       ;
+            getFragmentManager().beginTransaction().add(R.id.fragment_container, new SquareFragment()).commit();
+        }
     }
 
     @Override
@@ -84,3 +85,7 @@ public class AmtModernArt extends ActionBarActivity {
         return true;
     }
 }
+
+
+
+

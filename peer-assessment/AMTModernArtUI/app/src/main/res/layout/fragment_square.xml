@@ -1,10 +1,100 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.supertetelman.amtmodernartui.SquareFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/seek_bar"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="false"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
-</FrameLayout>
+    <LinearLayout android:id="@+id/shapes_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dip">
+
+        <LinearLayout android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@android:color/black">
+
+            <View android:id="@+id/v2"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c2"/>
+
+            <View android:id="@+id/v3"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c3"/>
+
+            <View android:id="@+id/v4"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c4"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:background="@android:color/black">
+
+            <View android:id="@+id/v1"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c1"/>
+
+            <View android:id="@+id/v5"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c5"/>
+
+
+
+            <View android:id="@+id/v6"
+                android:layout_height="0px"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/shape_padding"
+                android:layout_marginRight="@dimen/shape_padding"
+                android:layout_marginTop="@dimen/shape_padding"
+                android:layout_marginBottom="@dimen/shape_padding"
+                android:background="@color/c6"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
